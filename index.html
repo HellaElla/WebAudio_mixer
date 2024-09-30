@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Audio Mixer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .track {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 80px;
+            height: 250px;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .controls-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 200px;
+            background-color: rgba(79, 79, 79, 0.1);
+        }
+
+        .volume-control {
+    width: 40px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+.volume-control input[type="range"] {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 4px;
+    background: #000000;
+    outline: none;
+    transform: rotate(-90deg);
+    transform-origin: 20px 20px;
+    position: absolute;
+    left: 15px;
+    top: 80px;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #b80000;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+        .pan-control {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            margin-bottom: 10px;
+            background-color: rgba(0, 0, 255, 0.1);
+        }
+
+        .knob {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #56565640;
+            position: relative;
+            cursor: grab;
+            transform: rotate(var(--rotation, 0deg));
+        }
+
+        .knob::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            width: 2px;
+            height: 10px;
+            background: rgb(255, 255, 255);
+            transform: translateX(-50%);
+        }
+
+        #tracks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .pan-label{
+            display: block;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .volume-label {
+    position: absolute;
+    bottom: -20px; /* Adjust this value to move the label up or down */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    text-align: center;
+}
+        
+    </style>
+</head>
+<body>
+    <h1>Web Audio Mixer</h1>
+    
+    <div id="controls">
+        <button id="playBtn">Play</button>
+        <button id="stopBtn">Stop</button>
+    </div>
+
+    <div id="tracks">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

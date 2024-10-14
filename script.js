@@ -143,9 +143,9 @@ async function initApp() {
     document.getElementById('tracks').innerHTML = '';
 
     try {
-        const audioBuffer1 = await loadAudio('/Chords_Loop.wav');
-        const audioBuffer2 = await loadAudio('/Drums_Loop_100.wav');
-        const audioBuffer3 = await loadAudio('/Percussion_100.flac');
+        const audioBuffer1 = await loadAudio('Audio/Chords_Loop.wav');
+        const audioBuffer2 = await loadAudio('Audio/Drums_Loop_100.wav');
+        const audioBuffer3 = await loadAudio('Audio/Percussion_100.flac');
         
         tracks.push(createTrack(audioBuffer1));
         tracks.push(createTrack(audioBuffer2));
